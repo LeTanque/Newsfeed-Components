@@ -8,14 +8,12 @@ class Article {
     this.domElement.addEventListener('click', () => this.closeArticle());
   }
   expandArticle() {
-    console.log('expand article');
     this.domElement.classList.toggle('article-open');
     this.expandButton.textContent = '';
     event.stopPropagation(); 
     // this.domElement.slideDown(1000); // Tried using jQuery, need to read up more on it
   }
   closeArticle() { // This is better than a close button, IMO. user clicks/taps on article and it closes.
-    console.log('close article?');
     this.domElement.classList.toggle('article-open');
     this.expandButton.textContent = '▼';
     event.stopPropagation(); 
