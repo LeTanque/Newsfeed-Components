@@ -8,13 +8,17 @@ class Article {
     this.domElement.addEventListener('click', () => this.closeArticle());
   }
   expandArticle() {
-    console.log(this.domElement);
+    console.log('expand article');
     this.domElement.classList.toggle('article-open');
+    this.expandButton.textContent = '';
+    event.stopPropagation(); 
     // this.domElement.slideDown(1000); // Tried using jQuery, need to read up more on it
   }
-  closeArticle() {
+  closeArticle() { // This is better than a close button, IMO. user clicks/taps on article and it closes.
     console.log('close article?');
     this.domElement.classList.toggle('article-open');
+    this.expandButton.textContent = '▼';
+    event.stopPropagation(); 
   }
 }
 
@@ -26,6 +30,5 @@ let articles = document.querySelectorAll('.article');
 articles.forEach( article => {
   new Article(article);
 });
-
 
 // slideDown slideUp
