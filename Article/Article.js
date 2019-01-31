@@ -3,13 +3,18 @@ class Article {
   constructor(article) {
     this.domElement = article;
     this.expandButton = article.querySelector('.expandButton');
-    this.expandButton.textContent = 'expand';
+    this.expandButton.textContent = '▼';
     this.expandButton.addEventListener('click', () => this.expandArticle());
+    this.domElement.addEventListener('click', () => this.closeArticle());
   }
   expandArticle() {
     console.log(this.domElement);
     this.domElement.classList.toggle('article-open');
     // this.domElement.slideDown(1000); // Tried using jQuery, need to read up more on it
+  }
+  closeArticle() {
+    console.log('close article?');
+    this.domElement.classList.toggle('article-open');
   }
 }
 
@@ -20,9 +25,7 @@ class Article {
 let articles = document.querySelectorAll('.article');
 articles.forEach( article => {
   new Article(article);
-  console.log(article);
 });
 
 
 // slideDown slideUp
-// this.domElement.slideUp(1000);
