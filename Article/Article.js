@@ -26,7 +26,7 @@ class Article {
   NodeList and create a new instance of Article by passing in each article as a parameter to the constructor. */
 let articles = document.querySelectorAll('.article');
 articles.forEach( article => {
-  new Article(article);
+  return new Article(article);
 });
 
 // slideDown slideUp
